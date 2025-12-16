@@ -2,15 +2,16 @@ import { useState } from 'react';
 import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
 import './App.css';
-import Hello from './components/Hello/Hello';
+import MainLayout from '@components/Layout/Layout';
+import MyHeader from '@components/Header/Header';
+import MyButton from '@components/Button/Button';
 
 function App() {
     return (
         <>
-            <div>
-                <Hello />
-                React
-            </div>
+            <MainLayout>
+                <MyHeader/>
+            </MainLayout>
         </>
     );
 }
