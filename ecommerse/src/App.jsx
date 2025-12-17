@@ -1,17 +1,11 @@
-import { useState } from 'react';
-import reactLogo from './assets/react.svg';
-import viteLogo from '/vite.svg';
-import './App.css';
-import MainLayout from '@components/Layout/Layout';
-import MyHeader from '@components/Header/Header';
-import MyButton from '@components/Button/Button';
+import HomePage from '@components/HomePage/HomePage';
+
+
 
 function App() {
     return (
         <>
-            <MainLayout>
-                <MyHeader/>
-            </MainLayout>
+            <HomePage/>
         </>
     );
 }
