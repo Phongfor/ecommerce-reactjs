@@ -1,8 +1,8 @@
-@import '@styles/mixin.module.scss';
-@import '@styles/variables.module.scss';
+@use '@styles/mixin.module.scss' as mixins;
+@use '@styles/variables.module.scss' as vars;
 
 .container{
-    @include flex_box_custom(center,center,0px);
+    @include mixins.flex_box_custom(center,center,0px);
     position: absolute;
     top: 0;
     left: 0;
@@ -18,21 +18,21 @@
 }
 
 .containerBoxItem{
-      @include flex_box_custom(center,center,10px);
+      @include mixins.flex_box_custom(center,center,10px);
 }
 
 .containerBox{
-    @include flex_box_custom(center,center,20px);
+    @include mixins.flex_box_custom(center,center,20px);
 }
 
 .containerMenu{
-     @include flex_box_custom(center,center,40px);
+     @include mixins.flex_box_custom(center,center,40px);
 }
 
 .boxIcon {
-    @include radius_common(50%);
-    @include flex_box_custom(center,center,0px);
-    background-color: $primary_color;
+    @include mixins.radius_common(50%);
+    @include mixins.flex_box_custom(center,center,0px);
+    background-color: vars.$primary_color;
     width: 26px;
     height: 26px;
 }
@@ -41,7 +41,7 @@
     cursor: pointer;
     padding-top: 9px;
     font-size: 15px;
-    color: $primary_color;
+    color: vars.$primary_color;
 }
 
 .menu::after{
@@ -49,7 +49,7 @@
     display: block;
     height: 2px;
     margin-top: 6px;
-    background-color: $primary_color;
+    background-color: vars.$primary_color;
     border-radius: 10px;
 
     transform-origin: right;
