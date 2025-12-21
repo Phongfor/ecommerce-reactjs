@@ -6,8 +6,7 @@ import styles from './styles.module.scss';
 function Info() {
     const { container } = styles;
 
-    return (
-        <div>
+    return (  
             <MainLayout>
                 <div className={container}>
                     {dataInfo.map((item) => {
@@ -20,8 +19,7 @@ function Info() {
                         );
                     })}
                 </div>
-            </MainLayout>
-        </div>
+            </MainLayout> 
     );
 }
 
