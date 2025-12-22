@@ -3,10 +3,26 @@
 
 .container{
     @include mixins.flex_box_custom(center,center,0px);
-    position: absolute;
-    top: 0;
+   
     left: 0;
     right: 0;
+}
+
+.topHeader{
+     position: absolute;
+    top: 0;
+}
+
+.fixedHeader{
+    position: fixed;
+    top: -83px;
+    background-color: #fff;
+    z-index: 999;
+    background-color: #ffffffe6;
+    transform: translateY(83px);
+    box-shadow: 2px 0 12px 0 rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(15px);
+    transition: transform 0.7s ease-in-out;
 }
 
 .containerHeader {
