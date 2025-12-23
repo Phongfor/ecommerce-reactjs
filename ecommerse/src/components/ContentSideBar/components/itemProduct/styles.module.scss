@@ -1,0 +1,44 @@
+@use '@styles/mixin.module.scss' as mixins;
+@use '@styles/variables.module.scss' as vars;
+.container {
+    @include mixins.flex_box_custom(center, flex-start, 25px);
+
+    margin-top: 40px;
+    padding: 20px;
+    transition: all 0.3s ease;
+    position: relative;
+
+    img {
+        width: 70px;
+    }
+
+    .boxContent {
+        @include mixins.flex_box_custom(center, flex-start, 10px);
+        flex-direction: column;
+    }
+
+    .boxClose {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        cursor: pointer;
+        transform: translateX(50px);
+        transition: all 0.3s ease;
+    }
+
+    .title {
+        font-size: 16px;
+        color: vars.$primary_color;
+    }
+    .des {
+        font-size: 14px;
+        color: vars.$four_color;
+    }
+
+    &:hover {
+        background-color: #f7f7f7;
+        .boxClose{
+            transform: translateX(0);
+        }
+    }
+}

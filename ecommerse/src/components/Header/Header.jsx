@@ -3,9 +3,9 @@ import { dataBoxIcon, dataMenu } from './constants';
 import Menu from './Menu/Menu';
 import styles from './styles.module.scss';
 import logo from '@icons/images/Logo-retina.png';
-import reload from '@icons/svgs/reload-icon.svg';
-import heart from '@icons/svgs/heart-icon.svg';
-import cart from '@icons/svgs/cart-icon.svg';
+import { TfiReload } from "react-icons/tfi"; 
+import { BsHeart } from "react-icons/bs";
+import { PiShoppingCart } from "react-icons/pi";
 import useScrollHandling from '@/hook/useScrollHandling';
 import { useContext, useEffect, useState } from 'react';
 import classNames from 'classnames';
@@ -25,7 +25,12 @@ function MyHeader() {
     const { scrollPosition } = useScrollHandling();
     const [fixedPosition, setFixedPosition] = useState(false);
 
-    const {isOpen, setIsOpen} = useContext(sideBarContext)
+    const {setType, setIsOpen} = useContext(sideBarContext)
+
+    const handleOpenSideBar = (type) => {
+        setIsOpen(true)
+        setType(type)
+    }
 
     useEffect(() => {
         setFixedPosition(scrollPosition > 80);
@@ -68,30 +73,24 @@ function MyHeader() {
                     <div className={containerMenu}>
                         {dataMenu.slice(3, dataMenu.length).map((item) => {
                             return (
-                                <Menu content={item.content} href={item.href} setIsOpen={setIsOpen}/>
+                                <Menu content={item.content} href={item.href} />
                             );
                         })}
                     </div>
 
                     <div className={containerBoxItem}>
-                        <img
-                            width={26}
-                            height={26}
-                            src={reload}
-                            alt='reload-icon'
-                        />
-                        <img
-                            width={26}
-                            height={26}
-                            src={heart}
-                            alt='heart-con'
-                        />
-                        <img
-                            width={26}
-                            height={26}
-                            src={cart}
-                            alt='cart-icon'
-                        />
+                        <TfiReload style={{
+                            fontSize:'20px'
+                        }}
+                        onClick={()=> handleOpenSideBar('compare')}/>
+                        <BsHeart style={{
+                            fontSize:'20px'
+                        }}
+                        onClick={()=> handleOpenSideBar('wishlist')}/>
+                        <PiShoppingCart style={{
+                            fontSize:'25px'
+                        }}
+                        onClick={()=> handleOpenSideBar('cart')}/>
                     </div>
                 </div>
             </div>
