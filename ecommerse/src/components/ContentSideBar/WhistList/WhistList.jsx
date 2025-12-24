@@ -2,24 +2,25 @@ import Button from '@components/Button/Button';
 import HeaderSideBar from '../components/HeaderSideBar/HeaderSideBar';
 import ItemProduct from '../components/itemProduct/ItemProduct';
 import styles from './styles.module.scss';
-import { TfiReload } from 'react-icons/tfi';
+import { CiHeart } from 'react-icons/ci';
 
-function Compare() {
-    const { container ,boxContent} = styles;
+function WhistList() {
+    const { container,boxBtn } = styles;
     return (
         <div className={container}>
-            <div className={boxContent}>
+            <div>
                 <HeaderSideBar
-                    icon={<TfiReload style={{ fontSize: '30px' }} />}
-                    title={'COMPARE'}
+                    content={<CiHeart style={{ fontSize: '30px' }} />}
+                    title={'WHIST LIST'}
                 />
                 <ItemProduct />
             </div>
-            <div>
-                <Button content={'VIEW COMPARE'} />
+            <div className={boxBtn}>
+                <Button content={'VIEW WHISTLIST'}/>
+                <Button content={'ADD ALL CART'} isPrimary={false}/>
             </div>
         </div>
     );
 }
 
-export default Compare;
+export default WhistList;

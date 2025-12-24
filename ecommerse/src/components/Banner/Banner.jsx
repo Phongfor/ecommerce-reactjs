@@ -7,7 +7,9 @@ function Banner() {
         <div className={content}>
             <h1 className={title}>XStore Marseille04 Demo</h1>
             <div className={des}>Make yours celebrations even more special this years with beautiful.</div>
-            <Button content="Go to shop"></Button>
+            <div style={{width : '176px'}}>
+                <Button content="Go to shop"></Button>
+            </div>
         </div>
     </div> );
 }

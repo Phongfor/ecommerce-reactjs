@@ -7,7 +7,7 @@ function Menu({content,href}) {
     const {setIsOpen,setType} = useContext(sideBarContext)
 
     const handleClickShowLogin =()=>{
-        if(content === 'sign in'){
+        if(content === 'Sign in'){
             setIsOpen(true)
             setType('login')
         }

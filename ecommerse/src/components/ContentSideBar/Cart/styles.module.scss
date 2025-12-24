@@ -1,0 +1,20 @@
+@use '@styles/mixin.module.scss' as mixins;
+@use '@styles/variables.module.scss' as vars;
+
+.container{
+    @include mixins.flex_box_custom(space-between,unset,0px);
+
+    flex-direction: column;
+    padding: 30px 20px 0 20px;
+    height: 95%;   
+
+    .total{
+        @include mixins.flex_box_custom(space-between,center,0px);
+    }
+
+    .boxBtn{
+         @include mixins.flex_box_custom(center,center,10px);
+         flex-direction: column;
+    }
+}
+

@@ -15,7 +15,9 @@ function ItemProduct() {
             }}/></div>
             <div className={boxContent}>
                 <div className={title}>Consectetur nibh at</div>
+                <div className={price}>Size:M</div>
                 <div className={des}>$119.99</div>
+                <div className={des}>SKU:12349</div>
             </div>
         </div>
     );
