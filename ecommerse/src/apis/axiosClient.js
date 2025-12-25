@@ -35,9 +35,10 @@ axiosClient.interceptors.response.use(
             originalRequest._retry = true;
 
             const refreshToken = Cookies.get('refreshToken');
+
             if (!refreshToken) return Promise.reject(err);
             try {
-                const res = await axiosClient.post('refreshToken', {
+                const res = await axiosClient.post('/refresh-token', {
                     token: refreshToken
                 });
                 const newAccessToken = res.data.accessToken;
@@ -47,6 +48,7 @@ axiosClient.interceptors.response.use(
             } catch (err) {
                 Cookies.remove('token');
                 Cookies.remove('refreshToken');
+                Cookies.remove('userId');
                 return Promise.reject(err);
             }
         }
