@@ -1,18 +1,14 @@
 import { useState } from 'react';
 import styles from './styles.module.scss';
-import { FiEye } from 'react-icons/fi';
-import { FiEyeOff } from 'react-icons/fi';
+import { FiEye, FiEyeOff } from 'react-icons/fi';
 import cls from 'classnames';
 
-function InputCommon({ label, type, isRequired = false, ...props }) {
-    const { labelInput, boxInput, container, boxIcon, errMsg, isErrInput } =
-        styles;
-    const { formik, id } = props;
+function InputCommon({ label, type, isRequired = false, formik, id, ...props }) {
+    const { labelInput, boxInput, container, boxIcon, errMsg, isErrInput } = styles;
     const [showPassword, setShowPassword] = useState(false);
 
     const isPassword = type === 'password';
-    const isShowTextPassword =
-        type === 'password' && showPassword ? 'text' : type;
+    const isShowTextPassword = isPassword && showPassword ? 'text' : type;
 
     const handleShowPassword = () => {
         setShowPassword(!showPassword);
@@ -33,10 +29,11 @@ function InputCommon({ label, type, isRequired = false, ...props }) {
             <div className={boxInput}>
                 <input
                     type={isShowTextPassword}
-                    {...props}
+                    id={id}
+                    name={id}
                     onBlur={formik.handleBlur}
                     onChange={formik.handleChange}
-                    value={formik.values[id]}
+                    value={formik.values[id] || ''}
                     className={cls({ [isErrInput]: isErr })}
                 />
                 {isPassword && (
