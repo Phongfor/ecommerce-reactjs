@@ -67,3 +67,59 @@
     font-size: 14px;
     color: vars.$thr_color;
 }
+
+.BoxSize {
+    @include mixins.flex_box_custom(center, center, 10px);
+
+    .size {
+        @include mixins.flex_box_custom(center, center, 0px);
+        border: 1px solid #e1e1e1;
+        padding: 4px 6px;
+        font-size: 10px;
+        cursor: pointer;
+
+        &:hover {
+            border: 1px solid vars.$primary_color;
+            transition: border 500ms;
+        }
+    }
+}
+
+.isActive{
+    border: 1px solid vars.$primary_color !important;
+}
+
+.btnClear{
+    margin-top: 10px;
+    font-size: 12px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.textCenter {
+    text-align: center;
+}
+
+.boxBtn {
+    width: 142px;
+    margin: 10px auto;
+}
+
+.containerItem {
+    @include mixins.flex_box_custom(flex-start, center, 20px);
+    margin-top: 20px;
+
+    .content {
+        @include mixins.flex_box_custom(flex-start, flex-start, 10px);
+
+        flex-direction: column;
+    }
+
+    .leftBtn {
+        margin: 0;
+    }
+
+    .largeImg {
+        width: 430px;
+    }
+}

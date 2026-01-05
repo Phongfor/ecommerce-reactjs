@@ -4,9 +4,9 @@ import styles from '../styles.module.scss';
 import { useNavigate } from 'react-router-dom';
 import Banner from '@Pages/components/Banner';
 import { OurShopProvider } from '@contexts/OurShopProvider';
-import { useContext } from 'react';
-import { OurShopContext } from '@contexts/OurShopProvider';
 import Filter from '../components/Filter';
+import ListProducts from '../components/ListProducts';
+import MyFooter from '@components/Footer/Footer';
 
 function OurShop() {
     const { container, functionBox, specialText, btnBack } = styles;
@@ -35,8 +35,12 @@ function OurShop() {
                     </div>
                 </div>
                 <Banner />
-                <div><Filter/></div>
+                <div>
+                    <Filter />
+                    <ListProducts />
+                </div>
             </MainLayout>
+            <MyFooter/>
         </OurShopProvider>
     );
 }

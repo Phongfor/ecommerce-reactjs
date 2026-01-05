@@ -81,3 +81,25 @@
         width: 83px;
     }
 }
+
+.containerProducts{
+    @include mixins.flex_box_custom(space-between, flex-start, 10px);
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+.sessionListProduct{
+    min-height: 800px;
+}
+
+.rotate{
+    animation: loading 1s linear infinite;
+    @keyframes loading {
+        0% {
+            transform: rotate(0);
+        }
+        100%{
+            transform: rotate(360deg);
+        }
+    }
+}

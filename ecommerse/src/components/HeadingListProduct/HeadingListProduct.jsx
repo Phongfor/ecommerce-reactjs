@@ -3,7 +3,7 @@ import styles from './styles.module.scss';
 import CountdownBanner from '@components/CountdownBanner/CountDownBanner';
 import ProductItem from '@components/ProductItem/ProductItem';
 
-function HeadingListProduct({data}) {
+function HeadingListProduct({ data }) {
     const { container, containerItem } = styles;
 
     return (
@@ -11,16 +11,18 @@ function HeadingListProduct({data}) {
             <div className={container}>
                 <CountdownBanner />
                 <div className={containerItem}>
-                    {
-                        data.map(item =>{
-                            return <ProductItem key={item.id}
-                            src={item.images[0]}
-                            prevSrc={item.images[1]}
-                            name={item.name}
-                            price={item.price}
+                    {data.map((item) => {
+                        return (
+                            <ProductItem
+                                key={item.id}
+                                src={item.images[0]}
+                                prevSrc={item.images[1]}
+                                name={item.name}
+                                price={item.price}
+                                details={item}
                             />
-                        })
-                    }             
+                        );
+                    })}
                 </div>
             </div>
         </MainLayout>
