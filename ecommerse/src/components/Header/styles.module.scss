@@ -91,3 +91,20 @@
     transform-origin: left;
     transform: scale(1);
 }
+
+.boxCart{
+    position: relative;
+
+    .quantity{
+        position: absolute;
+        top: -5px;
+        right: -10px;
+        background-color: vars.$primary_color;
+        color: #fff;
+        @include mixins.radius_common(50%);
+        @include mixins.flex_box_custom(center,center,0px);
+        width: 15px;
+        height: 15px;
+        font-size: 10px;
+    }
+}

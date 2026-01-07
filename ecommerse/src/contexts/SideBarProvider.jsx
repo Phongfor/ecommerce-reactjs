@@ -1,11 +1,37 @@
-import { createContext, useState } from "react";
+import { createContext, useState } from 'react';
+import { getCart } from '@/apis/cartService';
 
+export const sideBarContext = createContext();
 
-export const sideBarContext = createContext()
+export const SideBarProvider = ({ children }) => {
+    const [isOpen, setIsOpen] = useState(false);
+    const [type, setType] = useState('');
+    const [listProductCart, setListProductCart] = useState([]);
 
-export const SideBarProvider = ({children}) =>{
-    const [isOpen,setIsOpen] = useState(false)
-    const [type,setType] = useState('')
+    const handleGetListProductCarts = (userId, type) => {
+        if (userId && type === 'cart') {
+            getCart(userId)
+                .then((res) => {
+                    setListProductCart(res.data.data);
+                })
+                .catch((err) => {
+                    setListProductCart([]);
+                });
+        }
+    };
 
-    return <sideBarContext.Provider value={{isOpen,setIsOpen,type,setType}}>{children}</sideBarContext.Provider>
-}
+    const values = {
+        isOpen,
+        setIsOpen,
+        type,
+        setType,
+        listProductCart,
+        handleGetListProductCarts
+    };
+
+    return (
+        <sideBarContext.Provider value={values}>
+            {children}
+        </sideBarContext.Provider>
+    );
+};
