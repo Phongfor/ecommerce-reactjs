@@ -28,6 +28,11 @@ function Cart() {
         setIsOpen(false);
     };
 
+     const handleNavigateToCart = () => {
+        navigate('/cart');
+        setIsOpen(false);
+    };
+
     const subtotal = listProductCart.reduce((acc, item) => {
         return acc + item.total;
     }, 0);
@@ -73,7 +78,7 @@ function Cart() {
                             <p>${subtotal} </p>
                         </div>
                         <div className={boxBtn}>
-                            <Button content={'VIEW CART'} />
+                            <Button content={'VIEW CART'}  onClick={handleNavigateToCart}/>
                             <Button content={'CHECKOUT'} isPrimary={false} />
                         </div>
                     </div>

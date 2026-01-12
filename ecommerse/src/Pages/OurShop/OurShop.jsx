@@ -1,11 +1,11 @@
 import MyHeader from '@components/Header/Header';
 import MainLayout from '@components/Layout/Layout';
-import styles from '../styles.module.scss';
+import styles from './styles.module.scss';
 import { useNavigate } from 'react-router-dom';
-import Banner from '@Pages/components/Banner';
+import Banner from '@Pages/OurShop/components/Banner';
 import { OurShopProvider } from '@contexts/OurShopProvider';
-import Filter from '../components/Filter';
-import ListProducts from '../components/ListProducts';
+import Filter from './components/Filter';
+import ListProducts from './components/ListProducts';
 import MyFooter from '@components/Footer/Footer';
 
 function OurShop() {
@@ -34,7 +34,7 @@ function OurShop() {
                         </div>
                     </div>
                 </div>
-                <Banner />
+                <Banner/>
                 <div>
                     <Filter />
                     <ListProducts />
