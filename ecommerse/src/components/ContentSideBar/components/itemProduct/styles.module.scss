@@ -1,7 +1,7 @@
 @use '@styles/mixin.module.scss' as mixins;
 @use '@styles/variables.module.scss' as vars;
 .container {
-    @include mixins.flex_box_custom(center, flex-start, 25px);
+    @include mixins.flex_box_custom(unset, flex-start, 25px);
 
     margin-top: 40px;
     padding: 20px;

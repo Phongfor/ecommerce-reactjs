@@ -20,7 +20,9 @@
     "react-hook-form": "^7.71.0",
     "react-icons": "^5.5.0",
     "react-router-dom": "^7.11.0",
+    "react-slick": "^0.31.0",
     "react-toastify": "^11.0.5",
+    "slick-carousel": "^1.8.1",
     "yub": "^0.11.1",
     "yup": "^1.7.1"
   },

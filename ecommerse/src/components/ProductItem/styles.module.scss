@@ -43,6 +43,7 @@
     .BoxIcon {
         @include mixins.flex_box_custom(center, center, 0px);
 
+        cursor: pointer;
         width: 30px;
         height: 30px;
 

@@ -7,6 +7,7 @@ import Login from '@components/ContentSideBar/Login/Login';
 import Compare from '@components/ContentSideBar/Compare/Compare';
 import WhistList from '@components/ContentSideBar/WhistList/WhistList';
 import Cart from '@components/ContentSideBar/Cart/Cart';
+import DetailProduct from '@components/ContentSideBar/DetailProduct/DetailProduct';
 
 function SideBar() {
     const { container, overlay, sideBar, slideSideBar, boxIcon } = styles;
@@ -26,6 +27,8 @@ function SideBar() {
                 return <WhistList/>
             case 'cart':
                 return <Cart/>   
+                case 'detail':
+                return <DetailProduct/>   
             default:
                 return <Login/>;
         }
