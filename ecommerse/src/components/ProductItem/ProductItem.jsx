@@ -11,6 +11,7 @@ import LoadingTextCommon from '@components/LoadingTextCommon/LoadingTextCommon';
 import { CiHeart } from 'react-icons/ci';
 import { LiaEyeSolid, LiaShoppingBagSolid } from 'react-icons/lia';
 import { TfiReload } from 'react-icons/tfi';
+import { useNavigate } from 'react-router-dom';
 function ProductItem({
     src,
     prevSrc,
@@ -46,6 +47,7 @@ function ProductItem({
     const { setIsOpen, setType, handleGetListProductCarts, setDetailProduct } =
         useContext(sideBarContext);
     const { toast } = useContext(ToastContext);
+    const navigate = useNavigate();
 
     const handleChooseSize = (size) => {
         setSizeChoose(size);
@@ -89,6 +91,12 @@ function ProductItem({
             });
     };
 
+    const handleNavigateToDetail = () => {
+        const path = `/product/${details._id}`;
+
+        navigate(path);
+    };
+
     const handlleShowDetailProductSideBar = () => {
         setIsOpen(true);
         setType('detail');
@@ -104,11 +112,15 @@ function ProductItem({
     }, [isHomepage, ourShopStore?.isShowGrid]);
 
     return (
-        <div className={isShowGrid ? '' : containerItem}>
+        <div
+            className={isShowGrid ? '' : containerItem}
+            style={{ cursor: 'pointer' }}
+        >
             <div
                 className={classNames(boxImg, {
                     [largeImg]: !isShowGrid
                 })}
+                onClick={handleNavigateToDetail}
             >
                 <img src={src} alt='' />
                 <img src={prevSrc} alt='' className={showImgWhenHover} />

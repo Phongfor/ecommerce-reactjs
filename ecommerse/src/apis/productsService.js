@@ -14,4 +14,14 @@ const getProducts = async (query) => {
     return res.data;
 };
 
-export { getProducts };
+const getDetailProduct = async (id) => {
+    const res = await axiosClient.get(`/product/${id}`);
+    return res.data;
+};
+
+const getRelatedProduct = async (id) => {
+    const res = await axiosClient.get(`/related-products/${id}`);
+    return res.data.relatedProducts;
+};
+
+export { getProducts, getDetailProduct, getRelatedProduct };
