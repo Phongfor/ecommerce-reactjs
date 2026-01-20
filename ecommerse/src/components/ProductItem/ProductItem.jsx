@@ -18,7 +18,8 @@ function ProductItem({
     name,
     price,
     details,
-    isHomepage = true
+    isHomepage = true,
+    slideItem = false
 }) {
     const {
         boxImg,
@@ -110,6 +111,10 @@ function ProductItem({
             setIsShowGrid(ourShopStore?.isShowGrid);
         }
     }, [isHomepage, ourShopStore?.isShowGrid]);
+
+    useEffect(() => {
+        if (slideItem) setIsShowGrid(true);
+    }, [slideItem]);
 
     return (
         <div
