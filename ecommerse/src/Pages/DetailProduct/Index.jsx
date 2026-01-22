@@ -59,7 +59,7 @@ function DetailProduct() {
     const [isLoading, setIsLoading] = useState(false);
     const param = useParams();
     const navigate = useNavigate();
-    const { setIsOpen, setType, handleGetListProductsCart } =
+    const { setIsOpen, setType, handleGetListProductCarts } =
         useContext(sideBarContext);
     const { toast } = useContext(ToastContext);
     const userId = Cookies.get('userId');
@@ -147,7 +147,7 @@ function DetailProduct() {
             param.id,
             quantity,
             setIsLoadingBtn,
-            handleGetListProductsCart
+            handleGetListProductCarts
         );
     };
 
@@ -167,6 +167,7 @@ function DetailProduct() {
                 navigate('/cart');
             })
             .catch((err) => {
+                console.log(err)
                 toast.error('Add Product to cart failed!');
                 setIsLoadingBtnBuyNow(false);
             });

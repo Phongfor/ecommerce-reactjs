@@ -8,7 +8,7 @@ export const handleAddProductToCartCommon = (
     productId,
     quantity,
     setIsLoading,
-    handleGetListProductsCart
+    handleGetListProductCarts
 ) => {
     if (!userId) {
         setIsOpen(true);
@@ -36,7 +36,7 @@ export const handleAddProductToCartCommon = (
             setIsOpen(true);
             setType('cart');
             setIsLoading(false);
-            handleGetListProductsCart(userId, 'cart');
+            handleGetListProductCarts(userId, 'cart');
         })
         .catch((err) => {
             toast.error('Add Product to cart failed!');
