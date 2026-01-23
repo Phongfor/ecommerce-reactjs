@@ -1,23 +1,20 @@
-import classNames from 'classnames';
+import { useContext } from 'react';
 import styles from '../../styles.module.scss';
+import cls from 'classnames';
+import { StepperContext } from '@/contexts/SteperProvider';
 
-function Stepper({ number, content, isDisable }) {
+function Stepper({ number, content, isDisabled }) {
     const { stepper, numberStep, textStep, isDisableNumber, isDisableText } =
         styles;
+
+    const { setCurrentStep } = useContext(StepperContext);
+
     return (
-        <div className={stepper}>
-            <div
-                className={classNames(numberStep, {
-                    [isDisableNumber]: isDisable
-                })}
-            >
+        <div className={stepper} onClick={() => setCurrentStep(number)}>
+            <div className={cls(numberStep, { [isDisableNumber]: isDisabled })}>
                 {number}
             </div>
-            <div
-                className={classNames(textStep, {
-                    [isDisableNumber]: isDisable
-                })}
-            >
+            <div className={cls(textStep, { [isDisableText]: isDisabled })}>
                 {content}
             </div>
         </div>

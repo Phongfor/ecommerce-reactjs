@@ -1,13 +1,16 @@
+import Stepper from '@/pages/Cart/components/steps/Stepper';
 import styles from '../../styles.module.scss';
-import Stepper from './Stepper';
+import { useContext } from 'react';
+import { StepperContext } from '@/contexts/SteperProvider';
 
 function Steps() {
     const { containerSteps, steps, line, textNoti } = styles;
+    const { currentStep } = useContext(StepperContext);
 
     const dataSteps = [
-        { number: 1, content: 'shopping cart' },
-        { number: 2, content: 'checkout' },
-        { number: 3, content: 'order status' }
+        { number: 1, content: 'Shopping cart' },
+        { number: 2, content: 'Checkout' },
+        { number: 3, content: 'Order status' }
     ];
 
     return (
@@ -17,10 +20,10 @@ function Steps() {
                     return (
                         <>
                             <Stepper
-                                key={index}
                                 number={item.number}
                                 content={item.content}
-                                isDisable={index !== 0}
+                                key={index}
+                                isDisabled={index >= currentStep}
                             />
                             {index !== dataSteps.length - 1 && (
                                 <div className={line}></div>
@@ -29,8 +32,9 @@ function Steps() {
                     );
                 })}
             </div>
+
             <div className={textNoti}>
-                Your are out of time! Checkout now ro avoid losing your order!
+                You are out of time! Checkout now to avoid losing your order!
             </div>
         </div>
     );
