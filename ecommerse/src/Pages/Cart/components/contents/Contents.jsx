@@ -83,9 +83,6 @@ function Contents() {
         }
     }, []);
 
-    console.log(listProductCart)
-    console.log(userId)
-
     return (
         <>
             {listProductCart.length > 0 && userId ? (
